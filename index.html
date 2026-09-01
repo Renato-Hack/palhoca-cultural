@@ -6,76 +6,537 @@
 
     <title>Palhoça Cultural</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
     <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #f5f5f5;
-            color: #222;
+
+        * {
+            box-sizing: border-box;
         }
 
+        body {
+            margin: 0;
+            background: #f4f1eb;
+            color: #171717;
+            font-family: "DM Sans", sans-serif;
+        }
+
+        /* =========================
+           CABEÇALHO
+        ========================= */
+
         header {
-            background: #222;
+            padding: 28px 6%;
+            border-bottom: 1px solid #d8d4cc;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-family: "Playfair Display", serif;
+            font-size: 28px;
+            font-weight: 700;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: #171717;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            opacity: 0.6;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 560px;
+            margin: 0 6%;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+
+            align-items: center;
+        }
+
+        .hero-text {
+            padding: 50px 0;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(50px, 6vw, 82px);
+            line-height: 0.95;
+            font-weight: 600;
+            margin: 0 0 30px 0;
+        }
+
+        .hero p {
+            font-size: 18px;
+            line-height: 1.7;
+            max-width: 520px;
+            color: #555;
+        }
+
+        .hero-image {
+            height: 500px;
+
+            background-image:
+                url("https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1200&q=85");
+
+            background-size: cover;
+            background-position: center;
+        }
+
+
+        /* =========================
+           BOTÕES
+        ========================= */
+
+        .button {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 14px 24px;
+
+            background: #171717;
             color: white;
-            padding: 60px 20px;
+
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: 0.2s;
+        }
+
+        .button:hover {
+            background: #444;
+        }
+
+
+        /* =========================
+           CALENDÁRIO
+        ========================= */
+
+        .calendar-section {
+            background: #171717;
+            color: white;
+            padding: 90px 6%;
+            margin-top: 40px;
+        }
+
+        .section-label {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            margin-bottom: 15px;
+            opacity: 0.6;
+        }
+
+        .calendar-title {
+            font-family: "Playfair Display", serif;
+            font-size: 48px;
+            margin: 0 0 45px 0;
+        }
+
+        .month-navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            border-top: 1px solid #444;
+            border-bottom: 1px solid #444;
+
+            padding: 20px 0;
+            margin-bottom: 30px;
+        }
+
+        .month-navigation strong {
+            font-family: "Playfair Display", serif;
+            font-size: 24px;
+        }
+
+        .month-navigation button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+
+        /* =========================
+           EVENTOS
+        ========================= */
+
+        .events {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event {
+            background: #252525;
+        }
+
+        .event-image {
+            height: 250px;
+
+            background-size: cover;
+            background-position: center;
+        }
+
+        .event:nth-child(1) .event-image {
+            background-image:
+                url("https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .event:nth-child(2) .event-image {
+            background-image:
+                url("https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .event:nth-child(3) .event-image {
+            background-image:
+                url("https://images.unsplash.com/photo-1577083552431-6e5fd01aa342?auto=format&fit=crop&w=800&q=85");
+        }
+
+        .event-content {
+            padding: 25px;
+        }
+
+        .event-date {
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 11px;
+            opacity: 0.6;
+        }
+
+        .event h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 27px;
+            margin: 12px 0;
+        }
+
+        .event-info {
+            font-size: 14px;
+            line-height: 1.7;
+            color: #ccc;
+        }
+
+
+        /* =========================
+           CADASTRO
+        ========================= */
+
+        .submit-section {
+            padding: 100px 6%;
             text-align: center;
         }
 
-        header h1 {
-            margin: 0;
-            font-size: 42px;
+        .submit-section h2 {
+            font-family: "Playfair Display", serif;
+            font-size: 52px;
+            margin: 0 auto 20px;
+            max-width: 700px;
         }
 
-        header p {
-            font-size: 18px;
-            margin-top: 12px;
+        .submit-section p {
+            max-width: 600px;
+            margin: auto;
+            color: #666;
+            line-height: 1.7;
         }
 
-        main {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
+
+        /* =========================
+           RODAPÉ
+        ========================= */
+
+        footer {
+            border-top: 1px solid #d8d4cc;
+            padding: 30px 6%;
+
+            display: flex;
+            justify-content: space-between;
+
+            font-size: 12px;
+            color: #777;
         }
 
-        .card {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+
+        /* =========================
+           CELULAR
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            header {
+                padding: 22px 5%;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                grid-template-columns: 1fr;
+                margin: 0 5%;
+            }
+
+            .hero-image {
+                height: 350px;
+                order: -1;
+            }
+
+            .hero h1 {
+                font-size: 55px;
+            }
+
+            .calendar-section {
+                padding: 70px 5%;
+            }
+
+            .events {
+                grid-template-columns: 1fr;
+            }
+
+            .submit-section {
+                padding: 80px 5%;
+            }
+
+            .submit-section h2 {
+                font-size: 40px;
+            }
+
+            footer {
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
-        .card h2 {
-            margin-top: 0;
-        }
     </style>
 </head>
 
+
 <body>
 
+
 <header>
-    <h1>Palhoça Cultural</h1>
-    <p>Agenda cultural de Palhoça e região</p>
+
+    <div class="logo">
+        Palhoça Cultural
+    </div>
+
+    <nav>
+        <a href="#">Agenda</a>
+        <a href="#">Categorias</a>
+        <a href="#">Locais</a>
+        <a href="#">Sobre</a>
+    </nav>
+
 </header>
 
-<main>
 
-    <div class="card">
-        <h2>Calendário Cultural</h2>
+
+<section class="hero">
+
+    <div class="hero-text">
+
+        <div class="eyebrow">
+            Cultura · Palhoça · Santa Catarina
+        </div>
+
+        <h1>
+            Onde a cultura acontece.
+        </h1>
+
         <p>
-            Em breve você encontrará aqui os principais
-            eventos culturais de Palhoça.
+            Uma agenda para descobrir exposições,
+            música, teatro, cinema, dança, literatura
+            e tudo aquilo que movimenta a cultura
+            de Palhoça e região.
         </p>
+
+        <a href="#agenda" class="button">
+            EXPLORAR AGENDA
+        </a>
+
     </div>
 
-    <div class="card">
-        <h2>Cadastre seu evento</h2>
-        <p>
-            Produtores culturais poderão enviar seus eventos
-            para análise e publicação.
-        </p>
+
+    <div class="hero-image"></div>
+
+</section>
+
+
+
+<section class="calendar-section" id="agenda">
+
+    <div class="section-label">
+        Agenda cultural
     </div>
 
-</main>
+    <h2 class="calendar-title">
+        Próximos eventos
+    </h2>
+
+
+    <div class="month-navigation">
+
+        <button>←</button>
+
+        <strong>
+            Setembro 2026
+        </strong>
+
+        <button>→</button>
+
+    </div>
+
+
+    <div class="events">
+
+
+        <article class="event">
+
+            <div class="event-image"></div>
+
+            <div class="event-content">
+
+                <div class="event-date">
+                    05 · Setembro · 2026
+                </div>
+
+                <h3>
+                    Festival de Música
+                </h3>
+
+                <div class="event-info">
+                    19h30<br>
+                    Praça Central · Palhoça
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="event">
+
+            <div class="event-image"></div>
+
+            <div class="event-content">
+
+                <div class="event-date">
+                    12 · Setembro · 2026
+                </div>
+
+                <h3>
+                    Noite de Teatro
+                </h3>
+
+                <div class="event-info">
+                    20h00<br>
+                    Espaço Cultural · Palhoça
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <article class="event">
+
+            <div class="event-image"></div>
+
+            <div class="event-content">
+
+                <div class="event-date">
+                    18 · Setembro · 2026
+                </div>
+
+                <h3>
+                    Exposição de Arte
+                </h3>
+
+                <div class="event-info">
+                    10h às 18h<br>
+                    Centro Cultural · Palhoça
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<section class="submit-section">
+
+    <div class="section-label">
+        Faça parte
+    </div>
+
+    <h2>
+        Você produz cultura?
+    </h2>
+
+    <p>
+        Cadastre gratuitamente seu evento no
+        Palhoça Cultural. Nossa equipe irá analisar
+        as informações antes da publicação.
+    </p>
+
+    <a href="#" class="button">
+        CADASTRAR EVENTO
+    </a>
+
+</section>
+
+
+
+<footer>
+
+    <div>
+        © 2026 Palhoça Cultural
+    </div>
+
+    <div>
+        Agenda cultural de Palhoça e região
+    </div>
+
+</footer>
+
 
 </body>
 </html>
